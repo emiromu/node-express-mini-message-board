@@ -1,15 +1,12 @@
 import fs from 'fs';
 import path from 'path';
 import express from 'express';
-
-import indexRouter from './routes/indexRouter.js'
+import indexRouter from './routes/indexRouter.js';
 
 
 const app = express();
 const __dirname = path.resolve();
 const assetsPath = path.join(__dirname, "public");
-
-
 
 
 app.use(express.static(assetsPath));
