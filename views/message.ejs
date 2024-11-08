@@ -1,0 +1,15 @@
+<style>
+    table, th, td {
+      border:1px solid black;
+    }
+</style>
+<nav>
+    <div class="message">
+        Message posted by <%= message.user %> on <%= message.added %>
+        <table style="width:100%">
+            <tr>
+              <th><%= message.text %></th>
+            </tr>
+          
+          </table>
+</nav>

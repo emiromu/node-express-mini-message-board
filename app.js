@@ -2,6 +2,7 @@ import * as db from './mockDB.js';
 import path from 'path';
 import express from 'express';
 import indexRouter from './routes/indexRouter.js';
+import messageRouter from './routes/messageRouter.js';
 
 
 const app = express();
@@ -17,15 +18,14 @@ app.use(express.urlencoded({ extended: true }));
 
 
 app.use("/(index)?", indexRouter);
+app.use("/message", messageRouter);
 
 app.get("/new", (req, res) => {
     res.render("form");
 });
-
 app.post("/new", (req, res) => {
     db.newMessage(req.body.message, req.body.username);
     res.redirect("/");
-    //res.render("form");
   });
 
 

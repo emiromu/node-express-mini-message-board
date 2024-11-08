@@ -1,15 +1,22 @@
 import * as db from '../mockDB.js';
 import asyncHandler from 'express-async-handler';
-import CustomNotFoundError from "../errors/CustomNotFoundError.js";
+
 
 const getMessages = asyncHandler(async (req, res) => {
   const messages = await db.getMessages();
 
-  if (!messages) {
-    throw new CustomNotFoundError("No messages found - check the mock DB");
-  }
+
 
   res.render("index", { welcome: "Welcome to the messages page", messages: messages });
 });
 
-export {getMessages};
+
+const getMessage = asyncHandler(async (req, res) => {
+  console.log('controller.getMessage()')
+  const message = await db.getMessage(req.query.user, req.query.date);
+
+
+  res.render("message", {message: message });
+});
+
+export {getMessages, getMessage};

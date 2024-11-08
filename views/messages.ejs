@@ -1,13 +1,14 @@
 <nav>
     <ul>
       <% for (let i = 0; i < messages.length; i++) { %>
+        <% let dlink = '/message?user='+JSON.stringify(messages[i].user)+'&date='+JSON.stringify(messages[i].added); %>
         <li>
             <div class="message">
-                <div class="content"><b> <%= messages[i].text %> </b></div>
-                <div class="user"><i>Posted by : <%= messages[i].user %> </i></div>
-                <div class="date"><i> <%= messages[i].added %> </i></div>
+                  <div class="content"><b> <%= messages[i].text %> </b></div>
+                  <div class="user"><i>Posted by : <%= messages[i].user %> </i></div>
+                  <div class="date"><i> <%= messages[i].added %> </i></div>
+                  <a href=<%= dlink %>>details</a>
             </div>
-          </a>
         </li>
       <% } %>
     </ul>
