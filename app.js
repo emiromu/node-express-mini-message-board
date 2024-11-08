@@ -1,4 +1,4 @@
-import fs from 'fs';
+import * as db from './mockDB.js';
 import path from 'path';
 import express from 'express';
 import indexRouter from './routes/indexRouter.js';
@@ -23,9 +23,7 @@ app.get("/new", (req, res) => {
 });
 
 app.post("/new", (req, res) => {
-    console.log('sent POST')
-    console.log(`Request data username: ${req.body.username}`)
-    console.log(`Request data message: ${req.body.message}`)
+    db.newMessage(req.body.message, req.body.username);
     res.render("form");
   });
 
