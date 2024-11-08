@@ -24,7 +24,8 @@ app.get("/new", (req, res) => {
 
 app.post("/new", (req, res) => {
     db.newMessage(req.body.message, req.body.username);
-    res.render("form");
+    res.redirect("/");
+    //res.render("form");
   });
 
 
