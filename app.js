@@ -2,6 +2,8 @@ import fs from 'fs';
 import path from 'path';
 import express from 'express';
 
+import indexRouter from './routes/indexRouter.js'
+
 // import authorRouter from './routes/authorRouter.js';
 // import bookRouter from './routes/bookRouter.js';
 
@@ -9,18 +11,7 @@ const app = express();
 const __dirname = path.resolve();
 const assetsPath = path.join(__dirname, "public");
 
-const messages = [
-    {
-      text: "Yaho~",
-      user: "Coco",
-      added: new Date()
-    },
-    {
-      text: "I wrote this1",
-      user: "Titi",
-      added: new Date()
-    }
-  ];
+
 
 
 app.use(express.static(assetsPath));
@@ -28,12 +19,7 @@ app.use(express.static(assetsPath));
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 
-// app.use("/authors", authorRouter);
-// app.use("/books", bookRouter);
-
-app.get("/(index)?", (req, res) => {
-    res.render("index", { welcome: "Welcome to the messages page", messages: messages });
-});
+app.use("/(index)?", indexRouter);
 
 app.get("/new", (req, res) => {
     res.render("form");
