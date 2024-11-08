@@ -1,0 +1,17 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="/styles.css">
+    </head>      
+    <body>
+        <div id="main" class="main">
+            <h3>New message form</h3>
+            <form method="POST" action="/new">
+                <label for="username">User name (4 to 12 characters):</label>
+                <input type="text" id="username" name="username" required minlength="4" maxlength="12" size="10" />
+                <label for="message">Message (1 to 255 characters):</label>
+                <textarea name="message" cols="40" rows="5" required minlength="1" maxlength="255"></textarea>
+                <button type="button">submit</button>
+             </form>
+        </div>
+    </body>
+</html>
