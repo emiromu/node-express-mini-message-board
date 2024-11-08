@@ -4,8 +4,6 @@ import express from 'express';
 
 import indexRouter from './routes/indexRouter.js'
 
-// import authorRouter from './routes/authorRouter.js';
-// import bookRouter from './routes/bookRouter.js';
 
 const app = express();
 const __dirname = path.resolve();
@@ -24,6 +22,11 @@ app.use("/(index)?", indexRouter);
 app.get("/new", (req, res) => {
     res.render("form");
 });
+
+app.post("/new", (req, res) => {
+    console.log('sent POST')
+    res.render("form");
+  });
 
 
 app.get("*", (req, res) => {
